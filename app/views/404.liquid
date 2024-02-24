@@ -1,0 +1,55 @@
+{% layout "default" %}
+
+<style>
+	body {
+		background-color: #f8f9fa;
+	}
+
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		max-width: 500px;
+	}
+
+	.card {
+		border: none;
+	}
+
+	.card-body {
+		padding: 40px;
+		text-align: center;
+	}
+
+	.card-title {
+		font-size: 48px;
+		font-weight: bold;
+		margin-bottom: 30px;
+		color: #dc3545;
+	}
+
+	.btn-primary {
+		border-radius: 25px;
+		padding: 14px 40px;
+		font-size: 18px;
+		font-weight: bold;
+		background-color: #007bff;
+		border-color: #007bff;
+	}
+
+	.btn-primary:hover {
+		background-color: #0056b3;
+		border-color: #0056b3;
+	}
+</style>
+
+<div class="container">
+	<div class="card shadow-sm">
+		<div class="card-body">
+			<h1 class="card-title">404</h1>
+			<p class="lead">{{ message | default: "Page not found" }}</p>
+			<a href="/" class="btn btn-primary">Return to home page</a>
+		</div>
+	</div>
+</div>

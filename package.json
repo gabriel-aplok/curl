@@ -1,0 +1,55 @@
+{
+	"name": "curl",
+	"version": "1.0.0",
+	"description": "",
+	"keywords": [],
+	"homepage": "https://github.com/gabriel-aplok/curl#readme",
+	"bugs": {
+		"url": "https://github.com/gabriel-aplok/curl/issues",
+		"email": "contact@gabriel-aplok.com"
+	},
+	"license": "UNLICENSED",
+	"author": "Gabriel Aplok <contact@gabriel-aplok.com> (http://gabriel-aplok.com/)",
+	"funding": "http://gabriel-aplok.com/sponsor",
+	"main": "./bin/www",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:gabriel-aplok/curl.git"
+	},
+	"scripts": {
+		"dev": "NODE_ENV=development nodemon .",
+		"start": "NODE_ENV=production node .",
+		"push": "git add -A && git commit -m 'changes and bug fixes' && git push origin main",
+		"genkey": "openssl rand -hex 16"
+	},
+	"dependencies": {
+		"body-parser": "^1.20.2",
+		"cors": "^2.8.5",
+		"diacritics": "^1.3.0",
+		"dotenv": "^16.4.5",
+		"express": "^4.18.2",
+		"express-rate-limit": "^7.1.5",
+		"express-xss-sanitizer": "^1.1.9",
+		"helmet": "^7.1.0",
+		"http-errors": "^2.0.0",
+		"liquidjs": "^10.10.1",
+		"morgan": "^1.10.0",
+		"nanoid": "^3.3.7",
+		"pg": "^8.11.3",
+		"pg-hstore": "^2.3.4",
+		"sequelize": "^6.37.1"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.0"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"**/test/**",
+			"**/docs/**"
+		],
+		"delay": 2500
+	}
+}

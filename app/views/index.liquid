@@ -1,0 +1,102 @@
+{% layout "default" %}
+
+<style>
+	.header {
+		background-color: #007bff;
+		color: #fff;
+		padding: 20px 0;
+	}
+
+	.header h1 {
+		font-size: 3rem;
+		font-weight: bold;
+	}
+
+	.header p {
+		font-size: 1.5rem;
+	}
+
+	.features {
+		padding: 50px 0;
+	}
+
+	.feature {
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.feature i {
+		font-size: 4rem;
+		color: #007bff;
+	}
+
+	.feature h2 {
+		font-size: 2rem;
+		margin-top: 20px;
+	}
+
+	.feature p {
+		font-size: 1.2rem;
+	}
+
+	.call-to-action {
+		text-align: center;
+		padding: 50px 0;
+	}
+
+	.btn-primary {
+		border-radius: 25px;
+		padding: 14px 40px;
+		font-size: 1.5rem;
+		font-weight: bold;
+		background-color: #0056b3;
+		border-color: #0056b3;
+	}
+
+	.btn-primary:hover {
+		background-color: #004080;
+		border-color: #004080;
+	}
+</style>
+
+<header class="header text-center">
+	<div class="container">
+		<h1>Welcome to cURL!</h1>
+		<p class="lead">Shorten your links, amplify your reach!</p>
+	</div>
+</header>
+
+<section class="features">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="feature">
+					<i class="bi bi-link"></i>
+					<h2>Shorten URLs</h2>
+					<p>Easily shorten long URLs into concise links with just a click.</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="feature">
+					<i class="bi bi-graph-up"></i>
+					<h2>Track Analytics</h2>
+					<p>Track link analytics including click count to understand link performance.</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="feature">
+					<i class="bi bi-code-slash"></i>
+					<h2>API Endpoints</h2>
+					<p>API endpoints for integration with other applications with secure and reliable database storage.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="call-to-action">
+	<div class="container">
+		<h2>Ready to get started?</h2>
+		<a href="/home" class="btn btn-primary btn-lg">Shorten your link!</a>
+	</div>
+</section>

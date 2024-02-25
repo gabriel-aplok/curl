@@ -39,6 +39,7 @@ app.use(rateLimit({
 }));
 app.use((req, res, next) => {
 	res.setHeader("x-powered-by", "Gabriel Aplok");
+	res.setHeader("x-render-origin-server", "FireWave Interactive");
 	next();
 });
 

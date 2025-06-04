@@ -1,8 +1,45 @@
 const { customAlphabet } = require("nanoid");
+const fs = require("fs");
+const path = require("path");
 const link = require("../models/link");
 
 const ALPHANUMERIC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 const nanoidAlphanumeric = customAlphabet(ALPHANUMERIC, 7);
+
+// Load profanity lists (en, pt-br)
+const profanityFiles = [
+  path.join(__dirname, "data", "en.txt"),
+  path.join(__dirname, "data", "pt-br.txt"),
+];
+let profanityWords = [];
+for (const file of profanityFiles) {
+  try {
+    const words = fs.readFileSync(file, "utf8")
+      .split(/\r?\n/)
+      .map(w => w.trim().toLowerCase())
+      .filter(Boolean);
+    profanityWords = profanityWords.concat(words);
+  } catch (e) {
+    // Ignore missing files
+  }
+}
+const profanitySet = new Set(profanityWords);
+
+/**
+ * Checks if a string contains any profane word.
+ * @param {string} str
+ * @returns {boolean}
+ */
+const containsProfanity = (str) => {
+  if (!str) return false;
+  const lower = str.toLowerCase();
+  for (const word of profanitySet) {
+    if (word.length > 2 && lower.includes(word)) {
+      return true;
+    }
+  }
+  return false;
+};
 
 /**
  * Validates if a string is a well-formed URL.
@@ -39,6 +76,11 @@ const createLink = async (originalUrl) => {
     const existingLink = await link.findOne({ where: { originalUrl } });
     if (existingLink) {
       return { error: "This URL has already been shortened" };
+    }
+
+    // Profanity validation
+    if (containsProfanity(originalUrl)) {
+      return { error: "URL contains inappropriate language" };
     }
 
     // Generate unique short code

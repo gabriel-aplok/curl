@@ -42,7 +42,7 @@ bower_components/
 .cache/
 
 # VS Code settings
-.vscode/
+# .vscode/
 
 # Mac system files
 .DS_Store

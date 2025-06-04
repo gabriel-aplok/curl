@@ -1,27 +1,50 @@
 {
+  // Format files automatically on save
   "editor.formatOnSave": true,
+
+  // Set tab size to 2 spaces
   "editor.tabSize": 2,
+
+  // Exclude specific folders from the file explorer
   "files.exclude": {
-    "node_modules": true,
-    "coverage": true,
-    ".nyc_output": true
+    "node_modules": true,     // Hide node_modules
+    "coverage": true,         // Hide coverage reports
+    ".nyc_output": true       // Hide nyc output
   },
+
+  // Associate file extensions with languages
   "files.associations": {
-    "*.liquid": "liquid",
-    "*.js": "javascript"
+    "*.liquid": "liquid",     // Treat .liquid files as Liquid
+    "*.js": "javascript"      // Treat .js files as JavaScript
   },
+
+  // Enable ESLint extension
   "eslint.enable": true,
+
+  // Validate JavaScript files with ESLint
   "eslint.validate": ["javascript"],
+
+  // Require a Prettier config file for formatting
   "prettier.requireConfig": true,
+
+  // Set Liquid language ID (for extensions that use it)
   "liquid.languageId": "liquid",
+
+  // Exclude folders from search results
   "search.exclude": {
-    "node_modules": true,
-    "coverage": true,
-    ".nyc_output": true
+    "node_modules": true,     // Exclude node_modules from search
+    "coverage": true,         // Exclude coverage from search
+    ".nyc_output": true       // Exclude nyc output from search
   },
+
+  // Set default formatter to Prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Use HTML formatter for Liquid files
   "[liquid]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+
+  // Disable Postman dotenv detection notification
   "postman.settings.dotenv-detection-notification-visibility": false
 }

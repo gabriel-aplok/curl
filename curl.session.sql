@@ -1,4 +1,0 @@
-SELECT * FROM links;
-
-
--- DROP TABLE IF EXISTS links;

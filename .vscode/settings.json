@@ -23,18 +23,5 @@
   "[liquid]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "postman.settings.dotenv-detection-notification-visibility": false,
-  "sqltools.connections": [
-    {
-      "mysqlOptions": {
-        "authProtocol": "default",
-        "enableSsl": "Disabled"
-      },
-      "previewLimit": 50,
-      "server": "localhost",
-      "driver": "MySQL",
-      "connectString": "mysql://root:mvKTyMMjXpsUVIlqtXoVkmDJMOJvrURp@interchange.proxy.rlwy.net:39013/railway",
-      "name": "curl"
-    }
-  ]
+  "postman.settings.dotenv-detection-notification-visibility": false
 }

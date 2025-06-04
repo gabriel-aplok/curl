@@ -1,9 +1,11 @@
+/* Ensure the html and body take at least full viewport height and prevent horizontal scrolling */
 html,
 body {
   min-height: 100%;
   overflow-x: hidden;
 }
 
+/* Set a minimum height for the content section to cover 70% of the viewport height */
 .content {
   min-height: 70vh;
 }

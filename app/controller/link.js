@@ -1,13 +1,27 @@
-const { nanoid } = require("nanoid");
+const { customAlphabet } = require("nanoid");
 const link = require("../models/link");
 
+const ALPHANUMERIC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+const nanoidAlphanumeric = customAlphabet(ALPHANUMERIC, 7);
+
+/**
+ * Validates if a string is a well-formed URL.
+ * @param {string} url - The URL to validate.
+ * @returns {boolean} - True if valid, false otherwise.
+ */
 const isValidUrl = (url) => {
   const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
   return urlRegex.test(url);
 };
 
+/**
+ * Creates a shortened link for a given original URL.
+ * @param {string} originalUrl - The original URL to shorten.
+ * @returns {Promise<object>} - Result object with success or error message.
+ */
 const createLink = async (originalUrl) => {
   try {
+    // Validate input
     if (
       !originalUrl ||
       typeof originalUrl !== "string" ||
@@ -16,17 +30,21 @@ const createLink = async (originalUrl) => {
       return { error: "Invalid URL" };
     }
 
+    // Validate URL format
     if (!isValidUrl(originalUrl)) {
       return { error: "Invalid URL format" };
     }
 
+    // Check if URL already exists
     const existingLink = await link.findOne({ where: { originalUrl } });
     if (existingLink) {
       return { error: "This URL has already been shortened" };
     }
 
-    const shortCode = nanoid(7);
+    // Generate unique short code
+    const shortCode = nanoidAlphanumeric();
 
+    // Create new link entry
     const createdLink = await link.create({ originalUrl, shortCode });
 
     return { success: "URL shortened successfully!", data: createdLink };
@@ -36,14 +54,21 @@ const createLink = async (originalUrl) => {
   }
 };
 
+/**
+ * Fetches a link by its short code and increments its click count.
+ * @param {string} shortCode - The short code of the link.
+ * @returns {Promise<object>} - Result object with link data or error.
+ */
 const fetchLink = async (shortCode) => {
   try {
+    // Find link by short code
     const existingLink = await link.findOne({ where: { shortCode } });
 
     if (!existingLink) {
       return { error: "Link not found" };
     }
 
+    // Increment click count
     existingLink.clicks++;
     await existingLink.save();
 
@@ -54,8 +79,14 @@ const fetchLink = async (shortCode) => {
   }
 };
 
-getClicksCount = async (shortCode) => {
+/**
+ * Gets the click count for a given short code.
+ * @param {string} shortCode - The short code of the link.
+ * @returns {Promise<object>} - Result object with click count or error.
+ */
+const getClicksCount = async (shortCode) => {
   try {
+    // Find link by short code
     const existingLink = await link.findOne({ where: { shortCode } });
 
     if (!existingLink) {
@@ -69,6 +100,10 @@ getClicksCount = async (shortCode) => {
   }
 };
 
+/**
+ * Deletes all links from the database.
+ * @returns {Promise<object>} - Result object with success or error message.
+ */
 const truncateLinks = async () => {
   try {
     await link.destroy({ where: {}, truncate: true });

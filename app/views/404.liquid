@@ -1,55 +1,83 @@
 {% layout "default" %}
 
 <style>
+	/* Reset default margin and set background */
 	body {
-		background-color: #f8f9fa;
+		margin: 0;
+		background: #f4f6fb;
+		font-family: 'Inter', Arial, sans-serif;
+		color: #222;
 	}
 
+	/* Center content vertically and horizontally */
 	.container {
+		min-height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 100vh;
-		max-width: 500px;
 	}
 
+	/* Card styling: minimalist, subtle shadow, rounded corners */
 	.card {
+		background: #fff;
+		border-radius: 18px;
+		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+		padding: 2.5rem 2rem;
+		max-width: 360px;
+		width: 100%;
 		border: none;
 	}
 
+	/* Card body: center text */
 	.card-body {
-		padding: 40px;
 		text-align: center;
 	}
 
+	/* 404 Title: bold, modern, accent color */
 	.card-title {
-		font-size: 48px;
-		font-weight: bold;
-		margin-bottom: 30px;
-		color: #dc3545;
+		font-size: 4rem;
+		font-weight: 700;
+		margin-bottom: 1.2rem;
+		color: #ff3b47;
+		letter-spacing: -2px;
 	}
 
+	/* Subtitle/message */
+	.lead {
+		font-size: 1.15rem;
+		color: #555;
+		margin-bottom: 2rem;
+	}
+
+	/* Button: minimalist, rounded, accent color */
 	.btn-primary {
-		border-radius: 25px;
-		padding: 14px 40px;
-		font-size: 18px;
-		font-weight: bold;
-		background-color: #007bff;
-		border-color: #007bff;
+		display: inline-block;
+		border: none;
+		border-radius: 999px;
+		padding: 0.85rem 2.2rem;
+		font-size: 1rem;
+		font-weight: 600;
+		background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+		color: #fff;
+		text-decoration: none;
+		transition: background 0.2s;
+		box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08);
 	}
 
 	.btn-primary:hover {
-		background-color: #0056b3;
-		border-color: #0056b3;
+		background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
 	}
 </style>
 
 <div class="container">
-	<div class="card shadow-sm">
+	<div class="card">
 		<div class="card-body">
+			<!-- Error code -->
 			<h1 class="card-title">404</h1>
+			<!-- Customizable error message -->
 			<p class="lead">{{ message | default: "Page not found" }}</p>
-			<a href="/" class="btn btn-primary">Return to home page</a>
+			<!-- Home button -->
+			<a href="/" class="btn btn-primary">Return Home</a>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "tamasfe.even-better-toml",
+    "naumovs.color-highlight",
+    "sissel.shopify-liquid",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

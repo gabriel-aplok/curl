@@ -1,0 +1,26 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "node_modules": true,
+    "coverage": true,
+    ".nyc_output": true
+  },
+  "files.associations": {
+    "*.liquid": "liquid",
+    "*.js": "javascript"
+  },
+  "eslint.enable": true,
+  "eslint.validate": ["javascript"],
+  "prettier.requireConfig": true,
+  "liquid.languageId": "liquid",
+  "search.exclude": {
+    "node_modules": true,
+    "coverage": true,
+    ".nyc_output": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[liquid]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
+}

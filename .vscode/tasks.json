@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start (production)",
+      "type": "shell",
+      "command": "npm start",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev (nodemon)",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Install dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint",
+      "type": "shell",
+      "command": "npx eslint .",
+      "problemMatcher": []
+    },
+    {
+      "label": "Format",
+      "type": "shell",
+      "command": "npx prettier --write .",
+      "problemMatcher": []
+    }
+  ]
+}

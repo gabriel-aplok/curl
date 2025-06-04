@@ -1,59 +1,66 @@
 # cURL
-This project is a simple link shortener application. It allows users to shorten long URLs into more manageable links, making them easier to share and track. Additionally, the application provides features such as link analytics and custom short code generation.
+
+cURL is a lightweight and user-friendly link shortener application. It enables you to convert long URLs into short, shareable links, track link analytics, and generate custom short codes. The app is designed for simplicity, speed, and reliability.
 
 ## Features
 
-- Shorten long URLs into concise links
-- Simple and fast.
-- Track link analytics including click count
-- User-friendly interface with Bootstrap styling
-- API endpoints for integration with other applications
-- Secure and reliable database storage.
+- **Shorten URLs:** Instantly create concise, easy-to-share links.
+- **Custom Short Codes:** Generate personalized short codes for your links.
+- **Analytics:** Monitor click counts and link performance.
+- **API Integration:** RESTful API endpoints for seamless integration.
+- **Modern UI:** Clean, responsive interface built with Bootstrap.
+- **Secure Storage:** Robust database for safe and reliable data management.
 
 ## Getting Started
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
-```
+```bash
 git clone https://github.com/gabriel-aplok/curl.git
 ```
 
-2. Navigate to the project directory:
+2. **Navigate to the project directory:**
 
-```
+```bash
 cd curl
 ```
 
-3. Install dependencies:
+3. **Install dependencies:**
 
-```
+```bash
 npm install
 ```
 
 ### Configuration
 
-1. Rename the `.env.example` file to `.env`.
-2. Configure the environment variables in the `.env` file according to your setup.
+1. Copy `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+2. Edit the `.env` file to set your environment variables.
 
 ### Usage
 
-1. Start the application:
+1. **Start the application:**
 
-```
+```bash
 npm start
 ```
 
-2. Access the application in your web browser at `http://localhost:3000`.
+2. **Open your browser and visit:**  
+   [http://localhost:3000](http://localhost:3000)
 
 ### API Endpoints
 
-Sorry, coming soon...
+_Comprehensive API documentation coming soon!_
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit any bug fixes or enhancements via pull requests.
+Contributions are welcome! If you have suggestions, bug reports, or improvements, please open an issue or submit a pull request.
 
 ## License
 

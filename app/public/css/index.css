@@ -1,9 +1,9 @@
 html,
 body {
-	min-height: 100%;
-	overflow-x: hidden;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 .content {
-	min-height: 70vh;
+  min-height: 70vh;
 }

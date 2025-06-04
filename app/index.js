@@ -47,6 +47,45 @@ app.use(xss());
 // Secure HTTP headers with Helmet
 app.use(helmet());
 
+// Add Content Security Policy (CSP) header
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "https://cdn.jsdelivr.net",
+        "https://use.fontawesome.com",
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://cdn.jsdelivr.net",
+        "https://use.fontawesome.com",
+      ],
+      fontSrc: [
+        "'self'",
+        "https://cdn.jsdelivr.net",
+        "https://use.fontawesome.com",
+      ],
+      imgSrc: ["'self'", "data:"],
+      connectSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+  })
+);
+
+// Enforce HTTPS in production
+if (process.env.NODE_ENV === "production") {
+  app.use((req, res, next) => {
+    if (req.headers["x-forwarded-proto"] !== "https") {
+      return res.redirect("https://" + req.headers.host + req.url);
+    }
+    next();
+  });
+}
+
 // Rate limiting: max 100 requests per 15 minutes per IP
 app.use(
   rateLimit({
